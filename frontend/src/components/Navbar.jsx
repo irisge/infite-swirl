@@ -14,11 +14,47 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="relative bg-white drop-shadow-nav flex flex-row justify-between items-center w-full h-16 p-4">
+      <nav className="relative bg-white drop-shadow-nav flex flex-row justify-between items-center w-full h-16 p-4 font-bold">
         <h1 className="text-xl font-inter font-black">THE INFINITE SWIRL</h1>
-        <button type="button" onClick={() => setMobileNavOpen(!mobileNavOpen)}>
+        <button
+          type="button"
+          className="lg:hidden"
+          onClick={() => setMobileNavOpen(!mobileNavOpen)}
+        >
           <img src={equals} alt="Logo menu" className="" />
         </button>
+        <NavLink
+          style={getActiveLinkStyle}
+          to="/on-trie"
+          onClick={() => setMobileNavOpen(false)}
+          className="hidden lg:flex"
+        >
+          ON TRIE ?
+        </NavLink>
+        <NavLink
+          style={getActiveLinkStyle}
+          to="/dechetteries"
+          onClick={() => setMobileNavOpen(false)}
+          className="hidden lg:flex"
+        >
+          DECHETTERIES
+        </NavLink>
+        <NavLink
+          style={getActiveLinkStyle}
+          to="/jour-de-collecte"
+          onClick={() => setMobileNavOpen(false)}
+          className="hidden lg:flex"
+        >
+          JOURS DE COLLECTE
+        </NavLink>
+        <NavLink
+          style={getActiveLinkStyle}
+          to="profil"
+          onClick={() => setMobileNavOpen(false)}
+          className="hidden lg:flex"
+        >
+          PROFIL
+        </NavLink>
       </nav>
       <div
         className={

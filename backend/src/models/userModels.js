@@ -1,4 +1,5 @@
 const db = require('./db');
+const SQLGenericError = require('../errors/SQLGenericError');
 
 const findAll = async () => {
   try {
@@ -6,6 +7,7 @@ const findAll = async () => {
     return users;
   } catch (e) {
     console.log(e);
+    throw new SQLGenericError();
   }
 };
 
@@ -15,6 +17,7 @@ const findOne = async (id) => {
     return user;
   } catch (e) {
     console.log(e);
+    throw new SQLGenericError();
   }
 };
 
@@ -37,6 +40,7 @@ const addOne = async (user) => {
     return { id: result.insertId, email };
   } catch (e) {
     console.log(e);
+    throw new SQLGenericError();
   }
 };
 
@@ -48,6 +52,7 @@ const findByEmail = async (email) => {
     return user;
   } catch (e) {
     console.log(e);
+    throw new SQLGenericError();
   }
 };
 

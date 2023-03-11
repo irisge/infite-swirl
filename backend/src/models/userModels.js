@@ -40,4 +40,15 @@ const addOne = async (user) => {
   }
 };
 
-module.exports = { findAll, findOne, addOne };
+const findByEmail = async (email) => {
+  try {
+    const [user] = await db.query('SELECT * FROM user WHERE email = ?', [
+      email,
+    ]);
+    return user;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports = { findAll, findOne, addOne, findByEmail };

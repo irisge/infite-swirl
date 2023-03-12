@@ -2,9 +2,8 @@ const { decodeJWT } = require('../helpers/jwtHelper');
 
 const authorization = async (req, res, next) => {
   try {
-    const bearerToken = req.headers.authorization;
-    if (!bearerToken) throw new Error();
-    const [_, token] = bearerToken.split(' ');
+    const token = req.cookies.aabs;
+    if (!token) throw new Error();
     const data = decodeJWT(token);
     req.userId = data.id;
     req.userEmail = data.email;

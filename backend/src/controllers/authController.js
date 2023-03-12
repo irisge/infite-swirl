@@ -20,19 +20,26 @@ const login = async (req, res, next) => {
 
     const passwordVerfication = await verifyPassword(
       user.password,
-      req.body.password,
+      req.body.password
     );
 
-    if (!passwordVerfication) throw new InvalidCredentialsError('Invalid password');
+    if (!passwordVerfication) {
+      throw new InvalidCredentialsError('Invalid password');
+    }
 
     const token = encodeJWT(user);
 
-    res.json({ token });
+    // Warning: secure should be true for production
+
+    res.cookie('aabs', token, { httpOnly: true, secure: false });
+    res.sendStatus(200).json({ userId: user.id });
   } catch (e) {
     next(e);
   }
 };
 
-const logout = async (req, res) => {};
+const logout = async (req, res) => {
+  res.clearCookie('aabs').sendStatus(200);
+};
 
 module.exports = { login, logout };

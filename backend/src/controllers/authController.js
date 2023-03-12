@@ -20,7 +20,7 @@ const login = async (req, res, next) => {
 
     const passwordVerfication = await verifyPassword(
       user.password,
-      req.body.password
+      req.body.password,
     );
 
     if (!passwordVerfication) {

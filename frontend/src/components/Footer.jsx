@@ -3,7 +3,7 @@ import leafFooter from '../assets/leafFooter.svg';
 
 function Footer() {
   return (
-    <footer className="flex flex-row flex-nowrap justify-between m-2 px-2">
+    <footer className="flex flex-row flex-nowrap justify-between m-2 px-2 bg-white">
       <div className="flex flex-col ">
         <div className="flex flex-row ">
           <h4 className="text-green font-inter font-black text-base">©2023</h4>

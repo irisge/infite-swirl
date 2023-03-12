@@ -16,7 +16,7 @@
   }
 
   #root {
-    @apply h-full flex flex-col m-0 p-0;
+    @apply overflow-auto h-full flex flex-col m-0 p-0;
   }
 
   a,

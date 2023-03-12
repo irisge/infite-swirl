@@ -1,8 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Navbar />
@@ -12,15 +16,16 @@ function Home() {
         </h2>
         <button
           type="button"
+          onClick={() => navigate('/connexion')}
           className="bg-light-green rounded-3xl font-semibold text-base text-black py-2 px-11"
         >
           ME CONNECTER
         </button>
         <button
           type="button"
+          onClick={() => navigate('/creation-compte')}
           className="bg-white rounded-full font-semibold text-base text-black py-2 px-6"
         >
-          {' '}
           CRÉER MON COMPTE
         </button>
       </header>
